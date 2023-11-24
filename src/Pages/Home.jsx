@@ -5,6 +5,7 @@ import FeaturedProduct from '../Component/HomeElement/FeaturedProduct';
 
 
 
+
 const Home = () => {
     return (
         <div>
