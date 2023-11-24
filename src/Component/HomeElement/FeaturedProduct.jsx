@@ -15,34 +15,40 @@ const FeaturedProduct = () => {
     console.log(featuredProduct);
 
     return (
-        <div className="mt-10 ">
-            <div className="w-4/12 mx-auto ">
-                <h1 className="text-3xl text-orange-400 font-medium text-center rounded-3xl border-2 border-orange-400  ">Featured Product</h1>
-            </div>
-            <Swiper
-                
-                slidesPerView={1}
-                spaceBetween={10}
-                freeMode={true}
-                pagination={{
-                    clickable: true,
-                }}
-                modules={[FreeMode, Pagination]}
-                className="mySwiper"
-            >
+        <>
+            {
+                featuredProduct ?
+                    <div className="mt-10 ">
+                        <div className="w-4/12 mx-auto ">
+                            <h1 className="text-3xl text-orange-400 font-medium text-center rounded-3xl border-2 border-orange-400  ">Featured Product</h1>
+                        </div>
+                        <Swiper
 
-                {
-                    featuredProduct.map(product =>
-                        <SwiperSlide key={product._id}>
-                            <FeatureCard product={product}></FeatureCard>
-                        </SwiperSlide>)
-                }
+                            slidesPerView={1}
+                            spaceBetween={10}
+                            freeMode={true}
+                            pagination={{
+                                clickable: true,
+                            }}
+                            modules={[FreeMode, Pagination]}
+                            className="mySwiper"
+                        >
+
+                            {
+                                featuredProduct.map(product =>
+                                    <SwiperSlide key={product._id}>
+                                        <FeatureCard product={product}></FeatureCard>
+                                    </SwiperSlide>)
+                            }
 
 
-            </Swiper>
+                        </Swiper>
 
 
-        </div>
+                    </div> :
+                    <div><span className="loading loading-bars loading-lg"></span></div>
+            }
+        </>
     );
 };
 
