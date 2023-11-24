@@ -15,13 +15,14 @@ const FeaturedProduct = () => {
     console.log(featuredProduct);
 
     return (
-        <div className="mt-10">
-<div>
-    <h1 className="text-5xl text-center underline">Featured Product</h1>
-</div>
+        <div className="mt-10 ">
+            <div className="w-4/12 mx-auto ">
+                <h1 className="text-3xl text-orange-400 font-medium text-center rounded-3xl border-2 border-orange-400  ">Featured Product</h1>
+            </div>
             <Swiper
-                slidesPerView={3}
-                spaceBetween={30}
+                
+                slidesPerView={1}
+                spaceBetween={10}
                 freeMode={true}
                 pagination={{
                     clickable: true,
@@ -33,7 +34,7 @@ const FeaturedProduct = () => {
                 {
                     featuredProduct.map(product =>
                         <SwiperSlide key={product._id}>
-                         <FeatureCard product={product}></FeatureCard>
+                            <FeatureCard product={product}></FeatureCard>
                         </SwiperSlide>)
                 }
 
