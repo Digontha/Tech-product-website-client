@@ -54,7 +54,7 @@ const Register = () => {
     
        return (
          <>
-           <div className='lg:flex flex-row-reverse lg:w-full bg-base-100'>
+           <div className='lg:flex flex-row-reverse items-center lg:w-full bg-gray-100'>
                <div className='flex flex-col justify-center lg:w-1/2 items-center mt-4 lg:h-[70vh]'>
                <h1 className="text-2xl font-semibold  ">Register</h1>
                  <div className="card lg:w-full">
@@ -96,7 +96,7 @@ const Register = () => {
             
               </div>
               <div className='lg:w-1/2'>
-                    <img src="https://th.bing.com/th/id/R.87e87fa8cb1c4d332a64470d5c3acd89?rik=vuWahGaWKYN5CQ&riu=http%3a%2f%2fdli-eduventure.um.ac.id%2fassets%2fimg%2flogin.png&ehk=hPJNQY6rdxBzsCPJa9ahwTJgf6KEPNQdNr1lfqo1NTk%3d&risl=&pid=ImgRaw&r=0" alt="" />
+                    <img src="https://th.bing.com/th/id/R.3da9876d71250ea2350fab949702f1ca?rik=HpNY1ESJW4aN5Q&pid=ImgRaw&r=0" alt="" />
                 </div>
            </div>
       
