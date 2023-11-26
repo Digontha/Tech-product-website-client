@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 import { FaRegThumbsUp } from 'react-icons/fa';
 import { useLoaderData } from 'react-router-dom';
 import Review from '../Review/Review';
+import PostReview from '../PostReview/PostReview';
+import useReview from '../../Hooks/useReview';
 
 const TrandingDetails = () => {
     const products = useLoaderData()
     console.log(products);
+    const [review] = useReview(products._id)
     const [upvoteCount, setUpvoteCount] = useState(products.upvote);
     const [isUpvoted, setIsUpvoted] = useState(false);
 
@@ -36,9 +39,16 @@ const TrandingDetails = () => {
                 <FaRegThumbsUp />
                 {upvoteCount}
             </button>
+            <div className='text-3xl underline'>Review</div>
+            <div className=''>
+                {
+                    review.map(item => <Review key={item._id} item={item}></Review>)
+                }
+            </div>
+            <div className='mt-7'>
 
-            <Review products={products}></Review>
-
+                <PostReview id={products._id}></PostReview>
+            </div>
         </div>
     );
 };

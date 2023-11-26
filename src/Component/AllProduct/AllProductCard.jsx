@@ -23,7 +23,7 @@ const AllProductCard = ({product}) => {
                         <img src={product.image} alt="Shoes" className="rounded-xl w-fit h-60" />
                     </figure>
                     <div className="card-body items-center text-center ">
-                       <Link to={`/trandingProduct/${product._id}`}> <h2 className="text-xl cursor-pointer">{product.product_name}</h2></Link>
+                       <Link to={`/AllProduct/${product._id}`}> <h2 className="text-xl cursor-pointer">{product.product_name}</h2></Link>
                     </div>
                     <div className="card-action flex justify-center mb-3">
                         <button

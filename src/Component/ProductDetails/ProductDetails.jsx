@@ -2,9 +2,15 @@ import React, { useState } from 'react';
 import { FaRegThumbsUp } from 'react-icons/fa';
 import { useLoaderData } from 'react-router-dom';
 import Review from '../Review/Review';
+import PostReview from '../PostReview/PostReview';
+import useReview from '../../Hooks/useReview';
+
+
 
 const ProductDetails = () => {
     const products = useLoaderData()
+    const [review] = useReview(products._id)
+    console.log("from details", review);
     console.log(products);
     const [upvoteCount, setUpvoteCount] = useState(products.upvote);
     const [isUpvoted, setIsUpvoted] = useState(false);
@@ -17,6 +23,9 @@ const ProductDetails = () => {
             setIsUpvoted(true);
         }
     };
+
+    //    const data  = useReview(products._id)
+    //    console.log("product iddddd",data);
 
     return (
         <div className='flex flex-col  mb-10'>
@@ -36,8 +45,19 @@ const ProductDetails = () => {
                 <FaRegThumbsUp />
                 {upvoteCount}
             </button>
+            <div className='text-3xl underline'>Review</div>
+            <div className=''>
 
-            <Review products={products}></Review>
+                <div className=''>
+                    {
+                        review.map(item => <Review key={item._id} item={item}></Review>)
+                    }
+                </div>
+                <div className='mt-7'>
+
+                    <PostReview id={products._id}></PostReview>
+                </div>
+            </div>
 
         </div>
     );

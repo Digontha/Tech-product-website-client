@@ -6,7 +6,7 @@ import { AuthContext } from '../AuthProvider/AuthProvider';
 const useUsers = () => {
     const axiosPublic = useAxiosPublic();
     const { user } = useContext(AuthContext)
-    const { refetch, data: users = [] } = useQuery({
+    const { refetch, data: users = [],isPending } = useQuery({
         queryKey: ["trandingProduct"],
         queryFn: async () => {
             const res = await axiosPublic.get(`/users?email=${user.email}`);
@@ -14,7 +14,7 @@ const useUsers = () => {
         }
 
     })
-    return [users, refetch]
+    return [users, refetch,isPending]
 };
 
 export default useUsers;
