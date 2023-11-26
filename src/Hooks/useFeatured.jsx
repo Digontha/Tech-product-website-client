@@ -5,7 +5,7 @@ import { useQuery } from '@tanstack/react-query';
 const useFeatured = () => {
     const axiosPublic=useAxiosPublic();
 
-    const {refetch, data:featuredProduct=[] }= useQuery({
+    const {isPending,refetch, data:featuredProduct=[] }= useQuery({
         queryKey:["featuredProduct"],
         queryFn:async()=>{
             const res = await axiosPublic.get(`/featuredProduct`)
@@ -13,7 +13,7 @@ const useFeatured = () => {
         }
       
     })
-    return [featuredProduct,refetch]
+    return [featuredProduct,refetch,isPending]
 };
 
 export default useFeatured;

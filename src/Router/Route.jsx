@@ -8,6 +8,9 @@ import Register from "../Pages/Register";
 import TrandingDetails from "../Component/TrandingDetails/TrandingDetails";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Dashboard from "../Pages/Dashboard";
+import MyProduct from "../Component/DashboardElement/MyProduct";
+import AddProduct from "../Component/DashboardElement/AddProduct";
+import MyProfile from "../Component/DashboardElement/MyProfile";
 
 const router = createBrowserRouter([
     {
@@ -20,7 +23,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/products",
-                element: <Products></Products>
+                element: <PrivateRoute><Products></Products></PrivateRoute>
 
             }
             ,
@@ -38,10 +41,7 @@ const router = createBrowserRouter([
 
             }
             ,
-            {
-                path: "dashboard",
-                element: <Dashboard></Dashboard>
-            },
+           
             {
                 path: "/login",
                 element: <Login></Login>,
@@ -52,6 +52,25 @@ const router = createBrowserRouter([
                 path: "/register",
                 element: <Register></Register>,
 
+            }
+        ]
+    },
+
+    {
+        path: "/dashboard",
+        element: <Dashboard></Dashboard>,
+        children:[
+            {
+                path:"/dashboard",
+                element:<MyProfile></MyProfile>
+            },
+            {
+                path:"/dashboard/addProduct",
+                element:<AddProduct></AddProduct>
+            },
+            {
+                path:"/dashboard/myProduct",
+                element:<MyProduct></MyProduct>
             }
         ]
     },

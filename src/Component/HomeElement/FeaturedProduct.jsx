@@ -6,18 +6,20 @@ import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
 import { FreeMode, Pagination } from 'swiper/modules';
 import FeatureCard from "./FeatureCard";
+import Loader from "../Loader/Loader";
 
 
 
 const FeaturedProduct = () => {
 
-    const [featuredProduct] = useFeatured();
+    const [featuredProduct, , isPending] = useFeatured();
     console.log(featuredProduct);
 
     return (
         <>
             {
-                featuredProduct ?
+                isPending ? <Loader></Loader>
+                    :
                     <div className="mt-10 ">
                         <div className="w-4/12 mx-auto ">
                             <h1 className="text-3xl text-orange-400 font-medium text-center rounded-3xl border-2 border-orange-400  ">Featured Product</h1>
@@ -45,8 +47,8 @@ const FeaturedProduct = () => {
                         </Swiper>
 
 
-                    </div> :
-                    <div><span className="loading loading-bars loading-lg"></span></div>
+                    </div>
+
             }
         </>
     );
