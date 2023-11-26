@@ -6,6 +6,7 @@ import ProductDetails from "../Component/ProductDetails/ProductDetails";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import TrandingDetails from "../Component/TrandingDetails/TrandingDetails";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -24,14 +25,14 @@ const router = createBrowserRouter([
          ,
         {
             path:"/featuredProduct/:id",
-            element:<ProductDetails></ProductDetails>,
+            element:<PrivateRoute><ProductDetails></ProductDetails></PrivateRoute>,
             loader:({params})=>fetch(`http://localhost:5000/featuredProduct/${params.id}`)
 
         }
          ,
         {
             path:"/trandingProduct/:id",
-            element:<TrandingDetails></TrandingDetails>,
+            element:<PrivateRoute><TrandingDetails></TrandingDetails></PrivateRoute>,
             loader:({params})=>fetch(`http://localhost:5000/trandingProduct/${params.id}`)
 
         }

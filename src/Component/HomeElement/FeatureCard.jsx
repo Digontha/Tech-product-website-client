@@ -16,7 +16,7 @@ const FeatureCard= ({ product }) => {
   };
 
   return (
-    <div className="card  bg-orange-300 shadow-xl my-10">
+    <div className="card  bg-orange-400 shadow-xl my-10">
       <figure className="px-10 pt-10 w-full h-fit">
         <img src={product.image} alt="Shoes" className="rounded-xl h-60" />
       </figure>

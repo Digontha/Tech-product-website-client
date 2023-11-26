@@ -17,7 +17,7 @@ const TrandingCard = ({ product }) => {
     return (
         <div>
             <>
-                <div className="card bg-base-100 shadow-xl">
+                <div className="card bg-orange-400 shadow-xl">
                     <figure className="px-10 pt-10 w-full h-60">
                         <img src={product.image} alt="Shoes" className="rounded-xl w-fit h-60" />
                     </figure>
