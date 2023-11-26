@@ -1,14 +1,16 @@
 import React from 'react';
 import Navbar from '../Shared/Navbar';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import Footer from '../Shared/Footer';
 
 const Root = () => {
+    const location = useLocation()
+    const noHeaderFooter = location.pathname.includes('/dashboard')
     return (
         <div>
-           <Navbar></Navbar>
-           <Outlet></Outlet>
-           <Footer></Footer>
+            {noHeaderFooter || <Navbar></Navbar>}
+            <Outlet></Outlet>
+            {noHeaderFooter || <Footer></Footer>}
         </div>
     );
 };

@@ -7,49 +7,54 @@ import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import TrandingDetails from "../Component/TrandingDetails/TrandingDetails";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import Dashboard from "../Pages/Dashboard";
 
 const router = createBrowserRouter([
     {
-      path: "/",
-      element:<Root></Root>,
-      children:[
-        {
-            path:"/",
-            element:<Home></Home>
-        },
-        {
-            path:"/products",
-            element:<Products></Products>
+        path: "/",
+        element: <Root></Root>,
+        children: [
+            {
+                path: "/",
+                element: <Home></Home>
+            },
+            {
+                path: "/products",
+                element: <Products></Products>
 
-        }
-         ,
-        {
-            path:"/featuredProduct/:id",
-            element:<PrivateRoute><ProductDetails></ProductDetails></PrivateRoute>,
-            loader:({params})=>fetch(`http://localhost:5000/featuredProduct/${params.id}`)
+            }
+            ,
+            {
+                path: "/featuredProduct/:id",
+                element: <PrivateRoute><ProductDetails></ProductDetails></PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/featuredProduct/${params.id}`)
 
-        }
-         ,
-        {
-            path:"/trandingProduct/:id",
-            element:<PrivateRoute><TrandingDetails></TrandingDetails></PrivateRoute>,
-            loader:({params})=>fetch(`http://localhost:5000/trandingProduct/${params.id}`)
+            }
+            ,
+            {
+                path: "/trandingProduct/:id",
+                element: <PrivateRoute><TrandingDetails></TrandingDetails></PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/trandingProduct/${params.id}`)
 
-        }
-         ,
-        {
-            path:"/login",
-            element:<Login></Login>,
+            }
+            ,
+            {
+                path: "dashboard",
+                element: <Dashboard></Dashboard>
+            },
+            {
+                path: "/login",
+                element: <Login></Login>,
 
-        }
-         ,
-        {
-            path:"/register",
-            element:<Register></Register>,
+            }
+            ,
+            {
+                path: "/register",
+                element: <Register></Register>,
 
-        }
-      ]
+            }
+        ]
     },
-  ]);
+]);
 
-  export default router
+export default router

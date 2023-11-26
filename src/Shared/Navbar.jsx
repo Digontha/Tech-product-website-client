@@ -55,7 +55,7 @@ const Navbar = () => {
                         <img tabIndex={0} className='w-10 h-10 rounded-full' src={user?.photoURL} alt="" />
                         <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
                             <li className='text-black'><p>{user?.displayName}</p></li>
-                            <Link><button className="btn w-full btn-sm btn-success btn-outline  mb-3">Dashboard</button></Link>
+                            <Link to="/dashboard"> <button className="btn w-full btn-sm btn-success btn-outline  mb-3">Dashboard</button></Link>
                             <button onClick={handleLogout} className="btn btn-sm btn-success btn-outline">Log out</button>
                         </ul>
                     </div>
