@@ -14,9 +14,9 @@ const TrandingDetails = () => {
 
     const handleUpvote = () => {
         if (!isUpvoted) {
-            // Increase the upvote count by 1 when the button is clicked
+            
             setUpvoteCount(upvoteCount + 1);
-            // Set isUpvoted to true to disable the button
+            //
             setIsUpvoted(true);
         }
     };

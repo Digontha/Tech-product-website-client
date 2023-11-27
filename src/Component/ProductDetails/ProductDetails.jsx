@@ -17,15 +17,14 @@ const ProductDetails = () => {
 
     const handleUpvote = () => {
         if (!isUpvoted) {
-            // Increase the upvote count by 1 when the button is clicked
+            
             setUpvoteCount(upvoteCount + 1);
-            // Set isUpvoted to true to disable the button
+         
             setIsUpvoted(true);
         }
     };
 
-    //    const data  = useReview(products._id)
-    //    console.log("product iddddd",data);
+
 
     return (
         <div className='flex flex-col  mb-10'>

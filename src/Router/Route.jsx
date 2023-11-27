@@ -11,6 +11,7 @@ import Dashboard from "../Pages/Dashboard";
 import MyProduct from "../Component/DashboardElement/MyProduct";
 import AddProduct from "../Component/DashboardElement/AddProduct";
 import MyProfile from "../Component/DashboardElement/MyProfile";
+import Payment from "../Component/Payment/Payment";
 
 const router = createBrowserRouter([
     {
@@ -27,9 +28,9 @@ const router = createBrowserRouter([
 
             },
             {
-                path:"allProduct/:id",
-                element:<ProductDetails></ProductDetails>,
-                loader:({ params }) => fetch(`http://localhost:5000/AllProduct/${params.id}`)
+                path: "allProduct/:id",
+                element: <ProductDetails></ProductDetails>,
+                loader: ({ params }) => fetch(`http://localhost:5000/AllProduct/${params.id}`)
             }
             ,
             {
@@ -46,7 +47,10 @@ const router = createBrowserRouter([
 
             }
             ,
-           
+            {
+                path: "/payment",
+                element: <Payment></Payment>
+            },
             {
                 path: "/login",
                 element: <Login></Login>,
@@ -58,25 +62,25 @@ const router = createBrowserRouter([
                 element: <Register></Register>,
 
             },
-           
+
         ]
     },
 
     {
         path: "/dashboard",
         element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
-        children:[
+        children: [
             {
-                path:"/dashboard",
-                element:<MyProfile></MyProfile>
+                path: "/dashboard",
+                element: <MyProfile></MyProfile>
             },
             {
-                path:"/dashboard/addProduct",
-                element:<AddProduct></AddProduct>
+                path: "/dashboard/addProduct",
+                element: <AddProduct></AddProduct>
             },
             {
-                path:"/dashboard/myProduct",
-                element:<MyProduct></MyProduct>
+                path: "/dashboard/myProduct",
+                element: <MyProduct></MyProduct>
             }
         ]
     },

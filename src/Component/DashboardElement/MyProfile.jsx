@@ -1,6 +1,7 @@
 import React from 'react';
 import useUsers from '../../Hooks/useUsers';
 import Loader from '../Loader/Loader';
+import { Link } from 'react-router-dom';
 
 
 const MyProfile = () => {
@@ -22,7 +23,7 @@ const MyProfile = () => {
                                     <h2 className="card-title mb-5">Name: {user?.name}</h2>
                                     <p className='card-title'>Email: {user?.email}</p>
                                     <div className="card-actions justify-end">
-                                        {user?.subscribe ? <button className="btn text-white">Verified</button> : <button className="btn text-white btn-outline">Subscribe</button>}
+                                        {user?.subscribe ? <button className="btn text-white">Verified</button> : <Link to="/payment"><button className="btn text-white btn-outline">Subscribe / <span className='text-xl'>$20</span></button></Link>}
                                     </div>
                                 </div>
                             </div>
