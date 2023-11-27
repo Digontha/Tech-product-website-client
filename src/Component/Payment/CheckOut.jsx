@@ -3,6 +3,8 @@ import React, { useContext, useEffect, useState } from 'react';
 import useAxiosPublic from '../../Hooks/useAxiosPublic';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 
+import { useNavigate } from 'react-router-dom';
+
 const CheckOut = () => {
 
     const stripe = useStripe();
@@ -12,6 +14,7 @@ const CheckOut = () => {
     const [clientSecret, setClientSecret] = useState('')
     const axiosPublic = useAxiosPublic()
     const totalPrice = 20
+    const navigate = useNavigate()
 
     useEffect(() => {
         if (totalPrice > 0) {
@@ -57,8 +60,8 @@ const CheckOut = () => {
             payment_method: {
                 card: card,
                 billing_details: {
-                    email: user?.email ,
-                    name: user?.displayName 
+                    email: user?.email,
+                    name: user?.displayName
                 }
             }
         })
@@ -68,10 +71,16 @@ const CheckOut = () => {
         }
         else {
             console.log('payment intent', paymentIntent)
-            // if (paymentIntent.status === 'succeeded') {
+            if (paymentIntent.status === 'succeeded') {
 
+                axiosPublic.put(`/users?email=${user.email}`)
+                    .then(res => {
+                        console.log(res.data);
+                        navigate(-1)
 
-            // }
+                    })
+
+            }
         }
     };
 
