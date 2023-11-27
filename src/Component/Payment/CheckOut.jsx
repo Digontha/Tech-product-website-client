@@ -4,6 +4,7 @@ import useAxiosPublic from '../../Hooks/useAxiosPublic';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 import { useNavigate } from 'react-router-dom';
+import swal from 'sweetalert';
 
 const CheckOut = () => {
 
@@ -76,6 +77,7 @@ const CheckOut = () => {
                 axiosPublic.put(`/users?email=${user.email}`)
                     .then(res => {
                         console.log(res.data);
+                        swal("Done", "Your Payment successful", "success");
                         navigate(-1)
 
                     })
