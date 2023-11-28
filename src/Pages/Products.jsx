@@ -4,14 +4,15 @@ import Banner from '../Component/HomeElement/Banner';
 import AllProductCard from '../Component/AllProduct/AllProductCard';
 import Loader from '../Component/Loader/Loader';
 import { useLoaderData } from 'react-router-dom';
+import { FaSearch } from 'react-icons/fa';
 
 const Products = () => {
     const countData = useLoaderData()
     console.log(countData);
-  
-    const itemsPerPage=20
+
+    const itemsPerPage = 20
     const [currentPage, setCurrentPage] = useState(0)
-   
+
     const Count = countData.count
     console.log(Count);
 
@@ -19,8 +20,8 @@ const Products = () => {
 
 
     const pages = [...Array(numberOfPages).keys()]
-
-    
+    const [searchTag, setSearchTag] = useState('');
+console.log(searchTag);
 
     const handlePrev = () => {
         if (currentPage > 0) {
@@ -32,12 +33,28 @@ const Products = () => {
             setCurrentPage(currentPage + 1)
         }
     }
-    const [AllProduct,,isPending] = useAllProduct(currentPage,itemsPerPage)
+    const [AllProduct, , isPending] = useAllProduct(currentPage, itemsPerPage,searchTag)
+
+    const handleSearch = (event) => {
+        event.preventDefault()
+        setSearchTag(event.target.tag.value);
+        setCurrentPage(0);
+    };
 
     return (
         <>
             <Banner></Banner>
-
+            <div className='flex justify-center my-7 items-center gap-3' >
+               <form onSubmit={handleSearch}>
+                <input                  
+                    type="text" placeholder="Search with tags"
+                    name='tag'
+                    className="input border-4 border-orange-400 input-bordered lg:w-full  " />
+                    <div className=' flex justify-center mt-2 '>
+                    <input className='btn btn-neutral btn-outline' type="submit" value="search" />
+                    </div>
+                </form>
+            </div>
             <h1 className="text-3xl text-orange-400 font-medium text-center rounded-3xl border-2 border-orange-400  ">All Product</h1>
 
             {
@@ -59,9 +76,9 @@ const Products = () => {
                         key={page}>{page}</button>)
                 }
                 <button onClick={handleNext} className='btn btn-neutral btn-sm'>Next</button>
-                
+
             </div>
-            
+
         </>
     );
 };
