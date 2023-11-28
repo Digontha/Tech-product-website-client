@@ -15,6 +15,8 @@ import Payment from "../Component/Payment/Payment";
 import Update from "../Component/DashboardElement/Update";
 import ProductReviewQueue from "../Component/DashboardElement/ProductReviewQueue";
 import MyAllProductDetails from "../Component/MyAllProductDetails";
+import ManageUser from "../Component/DashboardElement/ManageUser";
+import Statistics from "../Component/DashboardElement/Statistics";
 
 const router = createBrowserRouter([
     {
@@ -100,6 +102,14 @@ const router = createBrowserRouter([
                 path:"/dashboard/AllMyProduct/:id",
                 element:<MyAllProductDetails></MyAllProductDetails>,
                 loader:({params})=>fetch(`http://localhost:5000/myProduct/${params.id}`)
+            },
+            {
+                path:"/dashboard/manageUsers",
+                element:<ManageUser></ManageUser>
+            },
+            {
+                path:"/dashboard/statistics",
+                element:<Statistics></Statistics>
             }
         ]
     },

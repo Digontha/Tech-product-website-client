@@ -1,10 +1,13 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { FaHome, FaList, FaStreetView, FaUser } from 'react-icons/fa';
+import { FaHome, FaList, FaStreetView, FaUser, FaUserAlt, FaUserCheck } from 'react-icons/fa';
 import { MdLibraryAdd } from "react-icons/md";
 import { Link, Outlet } from 'react-router-dom';
+import useUsers from '../Hooks/useUsers';
 
 const Dashboard = () => {
+    const [users] = useUsers()
+    console.log(users);
     return (
         <>
             <Helmet>
@@ -13,9 +16,9 @@ const Dashboard = () => {
             <div className="drawer lg:drawer-open">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content flex flex-col-reverse items-center justify-center">
-                    
-                        <Outlet></Outlet>
-                 
+
+                    <Outlet></Outlet>
+
                     <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
 
                 </div>
@@ -32,7 +35,35 @@ const Dashboard = () => {
                         <Link to="/dashboard"><li className="text-xl font-medium w-full btn btn-outline btn-neutral"><p><FaUser></FaUser> My Profile</p></li></Link>
                         <Link to="/dashboard/addProduct"><li className="text-xl font-medium w-full btn btn-outline btn-neutral"><p><MdLibraryAdd></MdLibraryAdd> Add Product</p></li></Link>
                         <Link to="/dashboard/myProduct"><li className="text-xl font-medium w-full btn btn-outline btn-neutral"><p><FaList></FaList>My Products</p></li></Link>
-                        <Link to="/dashboard/productReviewQueue"><li className="text-xl font-medium w-full btn btn-outline btn-neutral"><p><FaStreetView></FaStreetView>product Review</p></li></Link>
+                        {
+                            users.map(item => item?.role === "moderator" && (
+                                <div key={item.id} className="flex flex-col w-full">
+                                    <div className="divider divider-neutral"></div>
+                                    <p className='text-xl underline mb-3'>Moderator Function</p>
+                                    <Link to="/dashboard/productReviewQueue">
+                                        <li className="text-xl font-medium w-full btn btn-outline btn-neutral">
+                                            <p><FaStreetView />product Review</p>
+                                        </li>
+                                    </Link>
+                                </div>
+                            ))
+                        }
+
+                        {users.map(item => item?.role === "admin" && (<div key={item._id} className="flex flex-col w-full">
+                            <div className="divider divider-neutral"></div>
+                            <p className='text-xl underline mb-3'>Admin Function</p>
+                            <Link to="/dashboard/manageUsers">
+                                <li className="text-xl font-medium w-full btn btn-outline btn-neutral">
+                                    <p><FaUserCheck />Manage User</p>
+                                </li>
+                            </Link>
+                            <Link to="/dashboard/statistics">
+                                <li className="text-xl font-medium w-full btn btn-outline btn-neutral">
+                                    <p><FaUserCheck />Statistics</p>
+                                </li>
+                            </Link>
+                        </div>))}
+
                         <div className="flex flex-col w-full ">
 
                             <div className="divider divider-neutral"></div>
