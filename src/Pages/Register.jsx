@@ -33,11 +33,11 @@ const Register = () => {
                 email,
                 name,
                 image,
-                subscribe:false,
+                subscribe: false,
               }
               axiosPublic.post("/users", userData)
                 .then(res => console.log(res.data))
-                navigate("/")
+              navigate("/")
             })
           e.target.reset()
         })
@@ -53,12 +53,21 @@ const Register = () => {
   }
   const handleGoogle = () => {
     googleLogin()
-      .then(() => {
+      .then((res) => {
+      
+        const userData = {
+          email: res.user.email,
+          name: res.user.displayName,
+          image: res.user.photoURL,
+          subscribe: false
 
+        }
+        axiosPublic.post("/users", userData)
+          .then(res => console.log(res.data))
         swal("success", "Your account create successfully", "success");
       })
-      .catch(() => {
-
+      .catch((err) => {
+        console.log(err);
         swal("error", "something went wrong", "error");
       })
   }

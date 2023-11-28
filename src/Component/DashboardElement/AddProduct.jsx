@@ -2,17 +2,19 @@ import React, { useContext } from 'react';
 import useAxiosPublic from '../../Hooks/useAxiosPublic';
 import swal from 'sweetalert';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import { useNavigate } from 'react-router-dom';
 
 const AddProduct = () => {
     const axiosPublic = useAxiosPublic()
     const {user}=useContext(AuthContext)
+    const navigate=useNavigate()
     const handleAddProduct = (e) => {
         e.preventDefault();
         const from = e.target
         const product_name = from.name.value
         const image = from.image.value
         const tag = from.tag.value
-        const upvote = from.upvote.value
+        const upvote = Number(from.upvote.value)
         const product_description = from.description.value
         console.log(product_description, product_name, image, tag, upvote);
 
@@ -22,14 +24,16 @@ const AddProduct = () => {
             tag,
             upvote,
             product_description,
-            email:user?.email
+            email:user?.email,
+            status:"pending"
         }
-        axiosPublic.post("/allProduct",productData)
+        axiosPublic.post("/myProduct",productData)
         .then(res=>{
             console.log(res.data);
             if(res.data.insertedId){
                 swal("Added", "Your product add successfully", "success");
                 from.reset()
+                navigate("/dashboard/myProduct")
             }
         })
 
