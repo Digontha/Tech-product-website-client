@@ -48,7 +48,7 @@ const ProductReviewQueue = () => {
                                 </tr>
                             </thead>
                             {
-                                AllMyProduct.map((item, inx) => <>
+                                AllMyProduct?.map((item, inx) => <>
                                     <div key={item._id}></div>
 
                                     <tbody>

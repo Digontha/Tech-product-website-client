@@ -17,11 +17,13 @@ import ProductReviewQueue from "../Component/DashboardElement/ProductReviewQueue
 import MyAllProductDetails from "../Component/MyAllProductDetails";
 import ManageUser from "../Component/DashboardElement/ManageUser";
 import Statistics from "../Component/DashboardElement/Statistics";
+import ErrorPage from "../Pages/ErrorPage";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Root></Root>,
+        errorElement:<ErrorPage></ErrorPage>,
         children: [
             {
                 path: "/",
@@ -30,32 +32,32 @@ const router = createBrowserRouter([
             },
             {
                 path: "/products",
-                element: <PrivateRoute><Products></Products></PrivateRoute>,
-                loader:()=>fetch("http://localhost:5000/allProductCount")
+                element:<Products></Products>,
+                loader:()=>fetch("https://tech-server-omega.vercel.app/allProductCount")
 
             },
             {
                 path: "allProduct/:id",
-                element: <ProductDetails></ProductDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/AllProduct/${params.id}`)
+                element: <PrivateRoute><ProductDetails></ProductDetails></PrivateRoute>,
+                loader: ({ params }) => fetch(`https://tech-server-omega.vercel.app/AllProduct/${params.id}`)
             },
             {
                 path:"/myProduct/:id",
                 element:<Update></Update>,
-                loader:({params})=>fetch(`http://localhost:5000/myProduct/${params.id}`)
+                loader:({params})=>fetch(`https://tech-server-omega.vercel.app/myProduct/${params.id}`)
             }
             ,
             {
                 path: "/featuredProduct/:id",
                 element: <PrivateRoute><ProductDetails></ProductDetails></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/featuredProduct/${params.id}`)
+                loader: ({ params }) => fetch(`https://tech-server-omega.vercel.app/featuredProduct/${params.id}`)
 
             }
             ,
             {
                 path: "/trandingProduct/:id",
                 element: <PrivateRoute><TrandingDetails></TrandingDetails></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/trandingProduct/${params.id}`)
+                loader: ({ params }) => fetch(`https://tech-server-omega.vercel.app/trandingProduct/${params.id}`)
 
             }
             ,
@@ -101,7 +103,7 @@ const router = createBrowserRouter([
             {
                 path:"/dashboard/AllMyProduct/:id",
                 element:<MyAllProductDetails></MyAllProductDetails>,
-                loader:({params})=>fetch(`http://localhost:5000/myProduct/${params.id}`)
+                loader:({params})=>fetch(`https://tech-server-omega.vercel.app/myProduct/${params.id}`)
             },
             {
                 path:"/dashboard/manageUsers",

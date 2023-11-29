@@ -48,7 +48,7 @@ const ManageUser = () => {
                                 </tr>
                             </thead>
                             {
-                                AllUsers.map((item, inx) => <>
+                                AllUsers?.map((item, inx) => <>
                                     <div key={item._id}></div>
 
                                     <tbody className='border-4 border-orange-300'>

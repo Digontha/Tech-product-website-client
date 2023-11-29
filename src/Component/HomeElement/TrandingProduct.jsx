@@ -16,7 +16,7 @@ const TrandingProduct = () => {
                         </div>
             {isPending?<Loader></Loader>:<div className='grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-8 my-10'>
                 {
-                    trandingProduct.map(products => <TrandingCard key={products._id} product={products}></TrandingCard>)
+                    trandingProduct?.map(products => <TrandingCard key={products?._id} product={products}></TrandingCard>)
                 }
             </div>}
         </>

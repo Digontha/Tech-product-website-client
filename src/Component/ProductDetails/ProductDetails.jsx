@@ -49,7 +49,7 @@ const ProductDetails = () => {
 
                 <div className=''>
                     {
-                        review.map(item => <Review key={item._id} item={item}></Review>)
+                        review?.map(item => <Review key={item._id} item={item}></Review>)
                     }
                 </div>
                 <div className='mt-7'>

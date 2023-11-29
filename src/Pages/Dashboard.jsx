@@ -36,7 +36,7 @@ const Dashboard = () => {
                         <Link to="/dashboard/addProduct"><li className="text-xl font-medium w-full btn btn-outline btn-neutral"><p><MdLibraryAdd></MdLibraryAdd> Add Product</p></li></Link>
                         <Link to="/dashboard/myProduct"><li className="text-xl font-medium w-full btn btn-outline btn-neutral"><p><FaList></FaList>My Products</p></li></Link>
                         {
-                            users.map(item => item?.role === "moderator" && (
+                            users?.map(item => item?.role === "moderator" && (
                                 <div key={item.id} className="flex flex-col w-full">
                                     <div className="divider divider-neutral"></div>
                                     <p className='text-xl underline mb-3'>Moderator Function</p>
@@ -49,11 +49,11 @@ const Dashboard = () => {
                             ))
                         }
 
-                        {users.map(item => item?.role === "admin" && (<div key={item._id} className="flex flex-col w-full">
+                        {users?.map(item => item?.role === "admin" && (<div key={item._id} className="flex flex-col w-full">
                             <div className="divider divider-neutral"></div>
                             <p className='text-xl underline mb-3'>Admin Function</p>
                             <Link to="/dashboard/manageUsers">
-                                <li className="text-xl font-medium w-full btn btn-outline btn-neutral">
+                                <li className="text-xl font-medium w-full btn btn-outline btn-neutral mb-3">
                                     <p><FaUserCheck />Manage User</p>
                                 </li>
                             </Link>

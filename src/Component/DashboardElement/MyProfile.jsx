@@ -12,7 +12,7 @@ const MyProfile = () => {
             {isPending ? <Loader></Loader> :
                 <div className='lg:w-1/2  '>
                     {
-                        users.map(user => <>
+                        users?.map(user => <>
                             <div className=" bg-neutral text-neutral-content p-10 rounded-2xl">
                                 <div className="avatar online">
                                     <div className="w-24 rounded-full">

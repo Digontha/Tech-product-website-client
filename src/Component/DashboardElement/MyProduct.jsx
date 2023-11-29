@@ -44,16 +44,16 @@ const MyProduct = () => {
                                 </tr>
                             </thead>
                             {
-                                myProduct.map((item, inx) => <>
+                                myProduct?.map((item, inx) => <>
                                     <div key={item._id}></div>
 
                                     <tbody>
 
                                         <tr>
                                             <td>{inx + 1}.</td>
-                                            <td>{item.product_name}</td>
-                                            <td>{item.upvote}</td>
-                                            <td>{item.status}</td>
+                                            <td>{item?.product_name}</td>
+                                            <td>{item?.upvote}</td>
+                                            <td>{item?.status}</td>
                                             <Link to={`/myProduct/${item?._id}`}><td className='btn btn-sm btn-accent btn-outline mr-6'>Update</td></Link>
 
                                             <td onClick={() => handleDelete(item._id)} className='btn btn-sm btn-secondary btn-outline'>Delete</td>

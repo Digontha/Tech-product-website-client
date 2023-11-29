@@ -37,8 +37,8 @@ const FeaturedProduct = () => {
                         >
 
                             {
-                                featuredProduct.map(product =>
-                                    <SwiperSlide key={product._id}>
+                                featuredProduct?.map(product =>
+                                    <SwiperSlide key={product?._id}>
                                         <FeatureCard product={product}></FeatureCard>
                                     </SwiperSlide>)
                             }

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const AllProductCard = ({product}) => {
     console.log(product);
-    const [upvoteCount, setUpvoteCount] = useState(product.upvote);
+    const [upvoteCount, setUpvoteCount] = useState(product?.upvote);
     const [isUpvoted, setIsUpvoted] = useState(false);
 
     const handleUpvote = () => {
@@ -20,10 +20,10 @@ const AllProductCard = ({product}) => {
             <>
                 <div className="card bg-orange-400 shadow-xl">
                     <figure className="px-10 pt-10 w-full h-60">
-                        <img src={product.image} alt="Shoes" className="rounded-xl w-fit h-60" />
+                        <img src={product?.image} alt="Shoes" className="rounded-xl w-fit h-60" />
                     </figure>
                     <div className="card-body items-center text-center ">
-                       <Link to={`/AllProduct/${product._id}`}> <h2 className="text-xl cursor-pointer">{product.product_name}</h2></Link>
+                       <Link to={`/AllProduct/${product?._id}`}> <h2 className="text-xl cursor-pointer">{product?.product_name}</h2></Link>
                     </div>
                     <div className="card-action flex justify-center mb-3">
                         <button
