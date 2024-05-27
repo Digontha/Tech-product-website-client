@@ -6,3 +6,12 @@ My project is a tech website. There are many types Tech devices will be availabl
 - Thirdly,I have login and registration where user can login and register.
 - Fourthly, I have admin and moderator routes.
 - Fifthly , have an add product section where user can add their product.
+
+  # Technology and Tools
+  - React js
+  - JS
+  - Express js
+  - Node js
+  - Mongodb
+  - Firebase
+    
