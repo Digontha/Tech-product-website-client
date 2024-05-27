@@ -92,7 +92,7 @@ const Navbar = () => {
 
                 </div> */}
 
-            <div className={`navbar-1 navbar  z-10 lg:px-20 2xl:px-[20%] py-5 font-poppins fixed ${scrolled ? 'scrolled' : 'navbar z-10 lg:px-[20%] py-10 fixed font-poppins'}`}>
+            <div className={`navbar-1 navbar  z-10 lg:px-20 2xl:px-[20%]  font-poppins fixed ${scrolled ? 'scrolled' : 'navbar z-10 lg:px-[20%]  fixed font-poppins'}`}>
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

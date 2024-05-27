@@ -1,13 +1,9 @@
 import useFeatured from "../../Hooks/useFeatured";
-
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/free-mode';
-import 'swiper/css/pagination';
-import { FreeMode, Pagination } from 'swiper/modules';
 import FeatureCard from "./FeatureCard";
 import Loader from "../Loader/Loader";
-
+import Marquee from "react-fast-marquee";
+import Container from "../UI/Container";
+import "./Css/fea.css"
 
 
 const FeaturedProduct = () => {
@@ -20,36 +16,28 @@ const FeaturedProduct = () => {
             {
                 isPending ? <Loader></Loader>
                     :
-                    <div className="mt-10 ">
-                        <div className="w-4/12 mx-auto ">
-                            <h1 className="text-3xl text-orange-400 font-medium text-center rounded-3xl border-2 border-orange-400  ">Featured Product</h1>
+                    <div className="font-poppins">
+                       <Container>
+                       <div className="">
+                            <h1 className="heading text-3xl">Featured Product</h1>
                         </div>
-                        <Swiper
+                       </Container>
 
-                            slidesPerView={1}
-                            spaceBetween={10}
-                            freeMode={true}
-                            pagination={{
-                                clickable: true,
-                            }}
-                            modules={[FreeMode, Pagination]}
-                            className="mySwiper"
-                        >
 
+                        <Marquee>
                             {
-                                featuredProduct?.map(product =>
-                                    <SwiperSlide key={product?._id}>
-                                        <FeatureCard product={product}></FeatureCard>
-                                    </SwiperSlide>)
+                                featuredProduct?.map(product => <>
+                                    <FeatureCard key={product?._id} product={product}></FeatureCard>
+                                </>)
                             }
-
-
-                        </Swiper>
-
+                        </Marquee>
 
                     </div>
 
             }
+
+
+
         </>
     );
 };

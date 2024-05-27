@@ -1,6 +1,7 @@
 import Container from "../UI/Container";
 import "./Css/ban.css"
 import img from "../../assets/images/man-gad.png"
+import { Link } from "react-router-dom";
 
 const Banner = () => {
     return (
@@ -12,10 +13,14 @@ const Banner = () => {
                             <h1 className="lg:text-[50px] text-3xl font-bold banner-h1-leading">Tech Essentials <span className="text-[#83543D]">Delivered</span> to Your Doorstep</h1>
                             <h6 className=" banner-h1-leading leading-8 text-base lg:text-xl  flex flex-col gap-2">From Pixels to Play Gadgets for Every Passion, Innovate Your Lifestyle Explore Our Gadgets!</h6>
                             <div className="flex gap-5">
-                                <button className=" px-5 py-2 rounded border-none  shadow-[#094F84] text-white bg-gradient-to-r from-[#333333] to-[#83543D] flex gap-2"><span>Shop Now</span> <span>
-                                </span></button>
-                                <button className=" px-5 py-2 rounded   text-black btn btn-outline flex gap-2"><span>Explore Us</span> <span>
-                                </span></button>
+                                <Link to="/products">
+                                    <button className="  rounded border-none btn  shadow-[#094F84] text-white bg-gradient-to-r from-[#333333] to-[#83543D] flex gap-2"><span>Shop Now</span> <span>
+                                    </span></button>
+                                </Link>
+                                <Link to="/dashboard">
+                                    <button className="  rounded   text-black btn btn-outline flex gap-2"><span>Explore Us</span> <span>
+                                    </span></button>
+                                </Link>
                             </div>
                         </div>
                     </div>
