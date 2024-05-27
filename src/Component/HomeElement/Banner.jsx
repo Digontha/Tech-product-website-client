@@ -1,34 +1,31 @@
-import React from 'react';
-import { Carousel } from 'react-responsive-carousel';
-import "react-responsive-carousel/lib/styles/carousel.min.css";
+import Container from "../UI/Container";
+import "./Css/ban.css"
+import img from "../../assets/images/man-gad.png"
 
 const Banner = () => {
     return (
+        <div className="   banner-background "  >
+            <Container>
+                <div className=" flex font-poppins lg:flex-row flex-col pt-40 pb-20 gap-5 lg:gap-10  justify-center items-center animated-image">
+                    <div className=" text-left lg:w-1/2">
+                        <div className="space-y-5">
+                            <h1 className="lg:text-[50px] text-3xl font-bold banner-h1-leading">Tech Essentials <span className="text-[#83543D]">Delivered</span> to Your Doorstep</h1>
+                            <h6 className=" banner-h1-leading leading-8 text-base lg:text-xl  flex flex-col gap-2">From Pixels to Play Gadgets for Every Passion, Innovate Your Lifestyle Explore Our Gadgets!</h6>
+                            <div className="flex gap-5">
+                                <button className=" px-5 py-2 rounded border-none  shadow-[#094F84] text-white bg-gradient-to-r from-[#333333] to-[#83543D] flex gap-2"><span>Shop Now</span> <span>
+                                </span></button>
+                                <button className=" px-5 py-2 rounded   text-black btn btn-outline flex gap-2"><span>Explore Us</span> <span>
+                                </span></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="flex items-center  rounded-2xl lg:w-1/2">
+                        <img className="lg:w-[500px] lg:h-[800px] rounded-2xl " src={img} alt="" />
+                    </div>
+                </div>
+            </Container>
 
-        <Carousel className='text-center '>
-
-            <div>
-                <img src="https://img.freepik.com/free-psd/horizontal-banner-template-techno-store_23-2148979527.jpg?w=1380&t=st=1700799731~exp=1700800331~hmac=398fb61b330c8ac949114aa7112561b6bc30922998cc872f2e1b53a8ed07ca1b" />
-
-            </div>
-            <div>
-                <img src="https://img.freepik.com/free-psd/tech-future-banner-template-concept-template_23-2148427301.jpg?w=1380&t=st=1700799963~exp=1700800563~hmac=1e6515217306119f8feef2c45fe38ee863665e186dbdf4f1d6915859916bbfbc" />
-
-            </div>
-            <div>
-                <img src="https://img.freepik.com/premium-psd/vr-event-banner-design-template_23-2149229530.jpg?w=1380" />
-
-            </div>
-            <div>
-                <img src="https://img.freepik.com/free-vector/abstract-fluid-technology-youtube-thumbnail_23-2149077355.jpg?w=1380&t=st=1700799864~exp=1700800464~hmac=cc5baa2c35f4ff78e2e11f7bbbddf2586d03ca7bab92c333689a0c34c631d0eb" />
-
-            </div>
-            <div>
-                <img src="https://img.freepik.com/free-psd/technology-landing-page-template-virtual-reality_23-2149513404.jpg?w=1380&t=st=1700799929~exp=1700800529~hmac=f29fe9fa371599e32003f30b76b6dc2f2a2c0c4f5555a988e07c2e157300dc72" />
-
-            </div>
-
-        </Carousel>
+        </div>
 
     );
 };

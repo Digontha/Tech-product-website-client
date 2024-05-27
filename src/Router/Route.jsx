@@ -33,31 +33,31 @@ const router = createBrowserRouter([
             {
                 path: "/products",
                 element:<Products></Products>,
-                loader:()=>fetch("https://tech-server-omega.vercel.app/allProductCount")
+                loader:()=>fetch("http://localhost:5000/allProductCount")
 
             },
             {
                 path: "allProduct/:id",
                 element: <PrivateRoute><ProductDetails></ProductDetails></PrivateRoute>,
-                loader: ({ params }) => fetch(`https://tech-server-omega.vercel.app/AllProduct/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/AllProduct/${params.id}`)
             },
             {
                 path:"/myProduct/:id",
                 element:<Update></Update>,
-                loader:({params})=>fetch(`https://tech-server-omega.vercel.app/myProduct/${params.id}`)
+                loader:({params})=>fetch(`http://localhost:5000/myProduct/${params.id}`)
             }
             ,
             {
                 path: "/featuredProduct/:id",
                 element: <PrivateRoute><ProductDetails></ProductDetails></PrivateRoute>,
-                loader: ({ params }) => fetch(`https://tech-server-omega.vercel.app/featuredProduct/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/featuredProduct/${params.id}`)
 
             }
             ,
             {
                 path: "/trandingProduct/:id",
                 element: <PrivateRoute><TrandingDetails></TrandingDetails></PrivateRoute>,
-                loader: ({ params }) => fetch(`https://tech-server-omega.vercel.app/trandingProduct/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/trandingProduct/${params.id}`)
 
             }
             ,
@@ -103,7 +103,7 @@ const router = createBrowserRouter([
             {
                 path:"/dashboard/AllMyProduct/:id",
                 element:<MyAllProductDetails></MyAllProductDetails>,
-                loader:({params})=>fetch(`https://tech-server-omega.vercel.app/myProduct/${params.id}`)
+                loader:({params})=>fetch(`http://localhost:5000/myProduct/${params.id}`)
             },
             {
                 path:"/dashboard/manageUsers",
