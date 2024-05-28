@@ -1,7 +1,7 @@
 // import React, { useState } from 'react';
 // import { FaRegThumbsUp } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-
+import PropTypes from 'prop-types';
 const FeatureCard= ({ product }) => {
   // const [upvoteCount, setUpvoteCount] = useState(product?.upvote);
   // const [isUpvoted, setIsUpvoted] = useState(false);
@@ -38,4 +38,8 @@ const FeatureCard= ({ product }) => {
   );
 };
 
+FeatureCard.propTypes = {
+  product: PropTypes.any,
+ 
+};
 export default FeatureCard;
