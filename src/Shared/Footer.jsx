@@ -1,10 +1,10 @@
 import moment from 'moment/moment';
-import React from 'react';
+import "./Css/fot.css"
 
 const Footer = () => {
     return (
         <div className=''>
-            <footer className="footer p-10 bg-neutral text-neutral-content">
+            <footer className="footer bg text-black p-10 bg-neutral">
 
                 <nav>
                     <header className="footer-title">Services</header>
@@ -32,7 +32,7 @@ const Footer = () => {
                 </nav>
 
             </footer>
-            <footer className="footer footer-center p-4 bg-neutral text-neutral-content">
+            <footer className="footer bg footer-center p-4 ">
                 <aside>
                     <p>Copyright © {moment().format('YYYY')} - All right reserved by ACME Industries Ltd</p>
                 </aside>

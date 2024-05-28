@@ -1,0 +1,4 @@
+.bg {
+    background: linear-gradient(90deg, #F3EFEC 0.31%, #D6E2FF 41.05%, #FFF 99.67%) ;
+    transition: background-color 200ms linear; /* Add a smooth transition effect */
+}
