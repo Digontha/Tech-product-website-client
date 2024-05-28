@@ -23,8 +23,8 @@ const Navbar = () => {
       
             <NavLink className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "border-b-2 border-black" : "border-b-2-hover"}
-                to="/dashboard">
-                <li><a>Dashboard</a></li>
+                to="/contact">
+                <li><a>Get In Touch</a></li>
             </NavLink>
         
 

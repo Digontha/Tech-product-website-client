@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet-async';
 import FeaturedProduct from '../Component/HomeElement/FeaturedProduct';
 import TrandingProduct from '../Component/HomeElement/TrandingProduct';
 import AboutUs from '../Component/HomeElement/AboutUs';
+import ContactUs from '../Component/HomeElement/ContactUs';
 
 
 
@@ -18,6 +19,7 @@ const Home = () => {
            <AboutUs></AboutUs>
            <FeaturedProduct></FeaturedProduct>
            <TrandingProduct></TrandingProduct>
+           <ContactUs></ContactUs>
           
         </div>
     );
