@@ -1,0 +1,37 @@
+import Container from "../UI/Container";
+import "./Css/ban.css"
+import img from "../../assets/images/delivery-1.png"
+import { FaArrowDown } from "react-icons/fa";
+
+const BannerPro = () => {
+    return (
+        <div className="   banner-background "  >
+        <Container>
+            <div className=" flex font-poppins lg:flex-row flex-col pt-40 pb-20 gap-5 lg:gap-10  justify-center items-center animated-image">
+                <div className=" text-left lg:w-1/2">
+                    <div className="space-y-5">
+                        <h1 className="lg:text-[50px] text-3xl font-bold banner-h1-leading">Our Products <span className="text-[#83543D]">Your Joy</span></h1>
+                        <h6 className=" banner-h1-leading leading-8 text-base lg:text-xl  flex flex-col gap-2">Upgrade your tech game with our cutting-edge gadgets! Shop now at Tech BD!</h6>
+                        <div className="flex items-center gap-2">
+                           
+                                <button className="  rounded border-none btn  shadow-[#094F84] text-white bg-gradient-to-r from-[#333333] to-[#83543D] flex gap-2"><span>Shop Now</span> <span>
+                                </span></button>
+                                <div>
+                                    <FaArrowDown></FaArrowDown>
+                                </div>
+                          
+                        </div>
+                    </div>
+                </div>
+                <div className="flex items-center  rounded-2xl lg:w-1/2">
+                    <img className="" src={img} alt="" />
+                </div>
+            </div>
+        </Container>
+
+    </div>
+
+    );
+};
+
+export default BannerPro;
