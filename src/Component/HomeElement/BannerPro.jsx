@@ -1,4 +1,4 @@
-import Container from "../UI/Container";
+import Container from "../../Component/UI/Container";
 import "./Css/ban.css"
 import img from "../../assets/images/delivery-1.png"
 import { FaArrowDown } from "react-icons/fa";

@@ -4,7 +4,7 @@ import { FaHome, FaList, FaStreetView, FaUser, FaUserAlt, FaUserCheck } from 're
 import { MdLibraryAdd } from "react-icons/md";
 import { Link, Outlet } from 'react-router-dom';
 import useUsers from '../Hooks/useUsers';
-
+import logo from "../assets/images/tech-logo.png"
 const Dashboard = () => {
     const [users] = useUsers()
     console.log(users);
@@ -13,7 +13,7 @@ const Dashboard = () => {
             <Helmet>
                 <title>TechBD || dashboard</title>
             </Helmet>
-            <div className="drawer lg:drawer-open">
+            <div className="drawer lg:drawer-open font-poppins">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content flex flex-col-reverse items-center justify-center">
 
@@ -24,11 +24,13 @@ const Dashboard = () => {
                 </div>
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
-                    <ul className="menu p-4 w-80 min-h-full bg-orange-400 text-base-content space-y-4">
+                    <ul className="menu p-4 w-80 min-h-full bg-gradient-to-r from-[#F3EFEC] to-[#D6E2FF] text-base-content space-y-4">
                         <div className='flex flex-col text-center mb-10'>
                             <div className='flex items-center gap-4 justify-center '>
-                                <h1 className='text-xl text-black'>TechBD</h1>
-                                <img className='w-10 h-10 rounded-full ' src="https://wallpapercave.com/wp/wp2823499.png" alt="" />
+                                
+                                <a href="/">
+                                <img className='w-10 h-10 rounded-full ' src={logo} alt="" />
+                                </a>
                             </div>
                         </div>
                         {/* Sidebar content here */}

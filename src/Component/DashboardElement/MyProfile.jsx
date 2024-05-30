@@ -13,7 +13,7 @@ const MyProfile = () => {
                 <div className='lg:w-1/2  '>
                     {
                         users?.map(user => <>
-                            <div className=" bg-neutral text-neutral-content p-10 rounded-2xl">
+                            <div className=" bg-gradient-to-r from-[#F3EFEC] to-[#D6E2FF] text-black p-10 rounded-2xl">
                                 <div className="avatar online">
                                     <div className="w-24 rounded-full">
                                         <img src={user?.image} />
